@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f3f4f6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: #f3f4f6;
 }
 
 @keyframes App-logo-spin {
