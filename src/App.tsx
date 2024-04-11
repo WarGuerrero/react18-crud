@@ -1,7 +1,7 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
-import Appbar from "./components/appbar.tsx";
-import Home from "./components/home.jsx";
+import Appbar from "./components/appbar";
+import Home from "./components/home";
 
 function App() {
   return (

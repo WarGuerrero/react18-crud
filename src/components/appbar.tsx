@@ -8,18 +8,12 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import AddIcon from "@mui/icons-material/Add";
 import Account from "@mui/icons-material/AccountCircleOutlined";
 import Notifications from "@mui/icons-material/Notifications";
-import logo from "../assets/logo.png";
-
+import Logo from "./logo";
 const pages = ["Home", "Estadísticas", "Contactos"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function AppbarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -53,9 +47,13 @@ function AppbarComponent() {
     <AppBar position="static" style={{ backgroundColor: "#1A53AD" }}>
       <Container maxWidth="xl" style={{ paddingLeft: 40, paddingRight: 40 }}>
         <Toolbar disableGutters>
-          <img src={logo} alt="BDVE+" />
-          <AddIcon fontSize="small" />
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Logo />
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none", justifyContent: "end" },
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -113,7 +111,8 @@ function AppbarComponent() {
                   backgroundColor:
                     activePage === page ? "white" : "transparent",
                   color: activePage === page ? "#1A53AD" : "white",
-                  fontFamily: "'Noto Sans', sans-serif",
+                  fontFamily: "Noto Sans",
+                  // fontFamily: "'Noto Sans', sans-serif",
                   fontWeight: 600,
                 }}
               >
@@ -122,7 +121,7 @@ function AppbarComponent() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
             <IconButton
               sx={{ p: 0 }}
               style={{ marginLeft: 20, marginRight: 20 }}
@@ -136,28 +135,6 @@ function AppbarComponent() {
             >
               <Account fontSize="large" style={{ color: "white" }} />
             </IconButton>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
